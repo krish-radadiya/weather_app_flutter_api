@@ -39,6 +39,10 @@ dependencies:
   google_fonts:
   shared_preferences:
   animated_introduction: ^1.0.4
+  provider:
+  connectivity_plus: ^4.0.2
+  http:
+
 
 dev_dependencies:
   flutter_test:

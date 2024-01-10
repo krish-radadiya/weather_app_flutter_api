@@ -54,20 +54,29 @@ class Intro_screen extends StatelessWidget {
                 pageColor: Color(
                   0xFF608FEB,
                 ),
-                titleTextStyle: TextStyle(color: Colors.white),
-                bodyTextStyle:
-                    TextStyle(fontWeight: FontWeight.w700, fontSize: 20.0),
+                titleTextStyle: TextStyle(
+                  color: Colors.white,
+                ),
+                bodyTextStyle: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 20.0,
+                ),
               ),
             ),
             PageViewModel(
               title: "Let’s Start",
               body: "rainy weather",
-              image: Image.asset("assets/intro 2.png", height: 175.0),
+              image: Image.asset(
+                "assets/intro 2.png",
+                height: 175.0,
+              ),
               decoration: const PageDecoration(
                 pageColor: Color(
                   0xFF608FEB,
                 ),
-                titleTextStyle: TextStyle(color: Colors.white),
+                titleTextStyle: TextStyle(
+                  color: Colors.white,
+                ),
                 bodyTextStyle:
                     TextStyle(fontWeight: FontWeight.w700, fontSize: 20.0),
               ),

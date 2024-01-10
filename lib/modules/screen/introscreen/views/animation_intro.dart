@@ -22,19 +22,19 @@ final List<SingleIntroScreen> pages = [
   const SingleIntroScreen(
     title: 'Welcome to the Event Management App !',
     description:
-        'You plans your Events, We\'ll do the rest and will be the best! Guaranteed!  ',
-    imageAsset: 'assets/image 2.png',
+        'You plans your Events, Well do the rest and will be the best! Guaranteed!',
+    imageAsset: 'assets/image 16.png',
   ),
   const SingleIntroScreen(
     title: 'Book tickets to cricket matches and events',
     description:
         'Tickets to the latest movies, crickets matches, concerts, comedy shows, plus lots more !',
-    imageAsset: 'assets/onboard_two.png',
+    imageAsset: 'assets/image 12.png',
   ),
   const SingleIntroScreen(
     title: 'Grabs all events now only in your hands',
     description: 'All events are now in your hands, just a click away ! ',
-    imageAsset: 'assets/onboard_three.png',
+    imageAsset: 'assets/image 13.png',
   ),
 ];
 
@@ -47,7 +47,7 @@ class ExamplePage extends StatelessWidget {
       slides: pages,
       indicatorType: IndicatorType.circle,
       onDone: () {
-        /// TODO: Go to desire page like login or home
+        /// TODO: Go to desire page -like login or home
       },
     );
   }
