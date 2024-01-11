@@ -1,119 +1,3 @@
-// import 'package:flutter/material.dart';
-//
-// class homescreen extends StatelessWidget {
-//   const homescreen({super.key});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       backgroundColor: Colors.grey.shade200,
-//       appBar: AppBar(
-//         backgroundColor: Colors.grey.shade100,
-//         elevation: 0,
-//         title: const Text(
-//           "weather",
-//           style: TextStyle(
-//             fontSize: 22,
-//             color: Colors.black,
-//           ),
-//         ),
-//         leading: IconButton(
-//           onPressed: () {},
-//           icon: const Icon(
-//             Icons.menu,
-//           ),
-//         ),
-//         actions: [
-//           IconButton(
-//             onPressed: () {
-//               Navigator.pushNamed(
-//                 context,
-//                 'search',
-//               );
-//             },
-//             icon: const Icon(
-//               Icons.search,
-//             ),
-//           ),
-//         ],
-//         centerTitle: true,
-//       ),
-//       body: Container(
-//         child: Column(
-//           children: [
-//             Expanded(
-//               flex: 4,
-//               child: GestureDetector(
-//                 onTap: () {
-//                   Navigator.pushNamed(
-//                     context,
-//                     'details',
-//                   );
-//                 },
-//                 child: Container(
-//                   margin: const EdgeInsets.only(
-//                     left: 30,
-//                     right: 30,
-//                     top: 10,
-//                   ),
-//                   decoration: BoxDecoration(
-//                     color: Colors.white,
-//                     borderRadius: BorderRadius.circular(
-//                       30,
-//                     ),
-//                     border: Border.all(
-//                       width: 1,
-//                       color: Colors.white10,
-//                     ),
-//                   ),
-//                 ),
-//               ),
-//             ),
-//             Expanded(
-//               flex: 1,
-//               child: Container(
-//                 padding: const EdgeInsets.only(
-//                   left: 40,
-//                 ),
-//                 child: const Row(
-//                   children: [
-//                     Text(
-//                       "Forecast",
-//                       style: TextStyle(
-//                         fontSize: 20,
-//                         fontWeight: FontWeight.bold,
-//                       ),
-//                     ),
-//                   ],
-//                 ),
-//               ),
-//             ),
-//             Expanded(
-//               flex: 6,
-//               child: Container(
-//                 margin: const EdgeInsets.only(
-//                   left: 30,
-//                   right: 30,
-//                   bottom: 20,
-//                 ),
-//                 decoration: BoxDecoration(
-//                   borderRadius: BorderRadius.circular(
-//                     30,
-//                   ),
-//                   color: Colors.white,
-//                   border: Border.all(
-//                     width: 1,
-//                     color: Colors.white10,
-//                   ),
-//                 ),
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -193,8 +77,9 @@ class _home_ScreenState extends State<home_Screen> {
                                           Text(
                                             "${apimodel?.location['name']}, ${apimodel?.location['country']}",
                                             style: const TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 22),
+                                              color: Colors.white,
+                                              fontSize: 22,
+                                            ),
                                           ),
                                           const Spacer(),
                                           IconButton(
