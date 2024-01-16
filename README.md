@@ -45,22 +45,17 @@ the weather data in depth for the selected location.
 
 ============================Splesh screen===============================
 
+
+
 <img src="https://github.com/krish-radadiya/weather_app_flutter_api/assets/113992828/2055759a-23a7-4cca-81f2-65187d83376f" width="250">
-<img src="https://github.com/krish-radadiya/weather_app_flutter_api/assets/113992828/5a398d2a-637d-4966-baa9-3799e37c4c44" width="250">
-<img src="https://github.com/krish-radadiya/weather_app_flutter_api/assets/113992828/858bb7ee-7dd4-428a-adb8-189c68a19650" width="250">
-<img src="https://github.com/krish-radadiya/weather_app_flutter_api/assets/113992828/c7110c5f-5ad1-467e-ab19-43e69a60608e" width="250">
+<img src="https://github.com/krish-radadiya/weather_app_flutter_api/assets/113992828/04cb8b1a-6366-414c-bb0a-c2c274b30b19" width="250">
+<img src="https://github.com/krish-radadiya/weather_app_flutter_api/assets/113992828/c119f7d0-72f5-471ab677-66b7f04ce74a" width="250">
+<img src="https://github.com/krish-radadiya/weather_app_flutter_api/assets/113992828/1467c5e2-155b-4ab5-a4c3-4f081094abec" width="250">
+<img src="https://github.com/krish-radadiya/weather_app_flutter_api/assets/113992828/5e8280c8-c627-43e4-821e-6cb6206ef003" width="250">
 <img src="https://github.com/krish-radadiya/weather_app_flutter_api/assets/113992828/93292300-ef66-4956-bb02-0873b1cdf098" width="250">
 <img src="https://github.com/krish-radadiya/weather_app_flutter_api/assets/113992828/4569261a-13e1-44b6-89f8-c8bbdbc3b4bf" width="250">
 <img src="https://github.com/krish-radadiya/weather_app_flutter_api/assets/113992828/ecfd8062-1156-4820-8769-d5993b6513f6" width="250">
 <img src="https://github.com/krish-radadiya/weather_app_flutter_api/assets/113992828/47ace855-f6c7-44fe-8b98-10282e7f9415" width="250">
-
-
-
-
-
-
-
-
 
 
 
