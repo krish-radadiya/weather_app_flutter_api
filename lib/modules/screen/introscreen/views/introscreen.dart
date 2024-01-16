@@ -1,142 +1,133 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:introduction_screen/introduction_screen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-class Intro_screen extends StatelessWidget {
-  Intro_screen({Key? key}) : super(key: key);
+class AppIntro extends StatefulWidget {
+  const AppIntro({super.key});
+
+  @override
+  AppIntroState createState() => AppIntroState();
+}
+
+class AppIntroState extends State<AppIntro> {
+  final PageController _pageController = PageController(initialPage: 0);
+
+  final List _pages = [
+    {
+      'image': 'assets/intro 1.png',
+      'title': 'Welcome to My App',
+      'description': 'the air is very high'
+    },
+    {
+      'image': 'assets/image 2.png',
+      'title': 'Explore Features',
+      'description': 'Here is a brief overview of what the app can do'
+    },
+    {
+      'image': 'assets/intro 2.png',
+      'title': 'rainflow',
+      'description': 'heavy rainflow',
+    },
+    {
+      'image': 'assets/image 2.png',
+      'title': 'Get Started',
+      'description': 'Let\'s get started!',
+    },
+  ];
+
+  int _currentPageIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: IntroductionScreen(
-          back: Container(
-            color: Colors.lightBlueAccent,
-          ),
-          pages: [
-            PageViewModel(
-              title: "Title of orange text and bold page",
-              body:
-                  "This is a description on a page with an orange title and bold, big body.",
-              image: Image.asset("assets/image 2.png", height: 175.0),
-              decoration: const PageDecoration(
-                pageColor: Color(
-                  0xFF608FEB,
-                ),
-                titleTextStyle: TextStyle(color: Colors.white),
-                bodyTextStyle:
-                    TextStyle(fontWeight: FontWeight.w700, fontSize: 20.0),
+    return Scaffold(
+      backgroundColor: Colors.lightBlue,
+      body: SafeArea(
+        child: Stack(
+          children: [
+            PageView.builder(
+              controller: _pageController,
+              itemCount: _pages.length,
+              onPageChanged: (index) {
+                setState(() {
+                  _currentPageIndex = index;
+                });
+              },
+              itemBuilder: (BuildContext context, int index) {
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      _pages[index]['image'],
+                      height: 250,
+                      width: 250,
+                    ),
+                    const SizedBox(
+                      height: 32.0,
+                    ),
+                    Text(
+                      _pages[index]['title'],
+                      style: const TextStyle(
+                        fontSize: 24.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 16.0),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                      child: Text(
+                        _pages[index]['description'],
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 16.0,
+                        ),
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
+            // Add circles to indicate the current page
+            Positioned(
+              bottom: 32.0,
+              left: 16.0,
+              child: Row(
+                children: [
+                  for (int i = 0; i < _pages.length; i++)
+                    Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 8.0),
+                      height: 12.0,
+                      width: 12.0,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: i == _currentPageIndex
+                            ? Theme.of(context).cardColor
+                            : Colors.black,
+                      ),
+                    ),
+                ],
               ),
             ),
-            PageViewModel(
-              title: "Multi Language",
-              body:
-                  "It build in two languages Hindi, English with best and easy translation ",
-              image: Image.asset("assets/intro 1.png", height: 175.0),
-              decoration: const PageDecoration(
-                pageColor: Color(
-                  0xFF608FEB,
-                ),
-                titleTextStyle: TextStyle(color: Colors.white),
-                bodyTextStyle:
-                    TextStyle(fontWeight: FontWeight.w700, fontSize: 20.0),
-              ),
-            ),
-            PageViewModel(
-              title: "Audio Book",
-              body:
-                  "You can listen the book in Hindi, English while doing your work",
-              image: Image.network(
-                  "https://cdn.jim-nielsen.com/ios/512/weather-2021-12-07.png",
-                  height: 175.0),
-              decoration: const PageDecoration(
-                pageColor: Color(
-                  0xFF608FEB,
-                ),
-                titleTextStyle: TextStyle(
-                  color: Colors.white,
-                ),
-                bodyTextStyle: TextStyle(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 20.0,
-                ),
-              ),
-            ),
-            PageViewModel(
-              title: "Let’s Start",
-              body: "rainy weather",
-              image: Image.asset(
-                "assets/intro 2.png",
-                height: 175.0,
-              ),
-              decoration: const PageDecoration(
-                pageColor: Color(
-                  0xFF608FEB,
-                ),
-                titleTextStyle: TextStyle(
-                  color: Colors.white,
-                ),
-                bodyTextStyle:
-                    TextStyle(fontWeight: FontWeight.w700, fontSize: 20.0),
-              ),
+            // Add a button to move to the next page or get started
+            Positioned(
+              bottom: 32.0,
+              right: 16.0,
+              child: _currentPageIndex == _pages.length - 1
+                  ? ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, 'home');
+                      },
+                      child: const Text('Get Started'),
+                    )
+                  : IconButton(
+                      onPressed: () {
+                        // Move to the next page when the arrow button is tapped
+                        _pageController.nextPage(
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.easeInOut,
+                        );
+                      },
+                      icon: const Icon(Icons.arrow_forward),
+                    ),
             ),
           ],
-          done: Text(
-            "done",
-            style: GoogleFonts.abrilFatface(
-              color: Colors.black,
-            ),
-            // style: TextStyle(
-            //   color: Colors.black,
-            // ),
-          ),
-          onDone: () async {
-            SharedPreferences preferences =
-                await SharedPreferences.getInstance();
-            preferences.setBool('IsIntroVisited', true);
-            Navigator.pushReplacementNamed(
-              context,
-              "home",
-            );
-          },
-          next: const Text(
-            "next",
-            style: TextStyle(
-              color: Colors.black,
-            ),
-          ),
-          showNextButton: true,
-          skip: const Text(
-            "skip",
-            style: TextStyle(
-              color: Colors.black,
-            ),
-          ),
-          onSkip: () {
-            Navigator.pushReplacementNamed(
-              context,
-              "homescreen",
-            );
-          },
-          showSkipButton: true,
-          dotsDecorator: DotsDecorator(
-            size: const Size.square(
-              10.0,
-            ),
-            activeSize: const Size(
-              20.0,
-              10.0,
-            ),
-            activeColor: Theme.of(context).colorScheme.secondary,
-            color: Colors.black,
-            spacing: const EdgeInsets.symmetric(
-              horizontal: 3.0,
-            ),
-            activeShape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(25.0),
-            ),
-          ),
         ),
       ),
     );

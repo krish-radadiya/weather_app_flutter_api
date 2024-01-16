@@ -11,12 +11,14 @@ class spleshscreen extends StatelessWidget {
       Navigator.pushNamed(context, "intro");
     });
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage(
-              "assets/Splash screen.jpg",
+      backgroundColor: Color(0xFF0E56AB),
+      body: Center(
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: NetworkImage(
+                "https://i.pinimg.com/564x/3c/c3/79/3cc379679b4088a3384a5b32fe3d270e.jpg",
+              ),
             ),
           ),
         ),

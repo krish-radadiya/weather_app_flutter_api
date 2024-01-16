@@ -52,7 +52,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:weather_app_flutter_api/modules/screen/homescreen/views/homescreen.dart';
 import 'package:weather_app_flutter_api/modules/screen/introscreen/views/introscreen.dart';
 import 'package:weather_app_flutter_api/modules/screen/spleshscreen/views/spleshscreen.dart';
-
 import 'modules/screen/homescreen/Provider/platefrom.dart';
 import 'modules/screen/homescreen/Provider/theme_provider.dart';
 
@@ -83,9 +82,9 @@ void main() async {
                 debugShowCheckedModeBanner: false,
                 initialRoute: (isvisited) ? 'Splash' : '/',
                 routes: {
-                  '/': (context) => spleshscreen(),
-                  'intro': (context) => Intro_screen(),
-                  'home': (context) => home_Screen()
+                  'splesh': (context) => spleshscreen(),
+                  'intro': (context) => AppIntro(),
+                  '/': (context) => HomeScreen()
                 },
               )
             : CupertinoApp(
